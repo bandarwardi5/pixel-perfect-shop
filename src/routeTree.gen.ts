@@ -22,18 +22,66 @@ import { Route as BooksRouteImport } from './routes/books'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
-const WishlistRoute = WishlistRouteImport.update({ id: '/wishlist', path: '/wishlist', getParentRoute: () => rootRouteImport } as any)
-const WatchesRoute = WatchesRouteImport.update({ id: '/watches', path: '/watches', getParentRoute: () => rootRouteImport } as any)
-const ShippingRoute = ShippingRouteImport.update({ id: '/shipping', path: '/shipping', getParentRoute: () => rootRouteImport } as any)
-const SearchRoute = SearchRouteImport.update({ id: '/search', path: '/search', getParentRoute: () => rootRouteImport } as any)
-const PerfumesRoute = PerfumesRouteImport.update({ id: '/perfumes', path: '/perfumes', getParentRoute: () => rootRouteImport } as any)
-const GiftsRoute = GiftsRouteImport.update({ id: '/gifts', path: '/gifts', getParentRoute: () => rootRouteImport } as any)
-const ElectronicsRoute = ElectronicsRouteImport.update({ id: '/electronics', path: '/electronics', getParentRoute: () => rootRouteImport } as any)
-const ContactRoute = ContactRouteImport.update({ id: '/contact', path: '/contact', getParentRoute: () => rootRouteImport } as any)
-const CartRoute = CartRouteImport.update({ id: '/cart', path: '/cart', getParentRoute: () => rootRouteImport } as any)
-const BooksRoute = BooksRouteImport.update({ id: '/books', path: '/books', getParentRoute: () => rootRouteImport } as any)
-const AboutRoute = AboutRouteImport.update({ id: '/about', path: '/about', getParentRoute: () => rootRouteImport } as any)
-const IndexRoute = IndexRouteImport.update({ id: '/', path: '/', getParentRoute: () => rootRouteImport } as any)
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WatchesRoute = WatchesRouteImport.update({
+  id: '/watches',
+  path: '/watches',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingRoute = ShippingRouteImport.update({
+  id: '/shipping',
+  path: '/shipping',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfumesRoute = PerfumesRouteImport.update({
+  id: '/perfumes',
+  path: '/perfumes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GiftsRoute = GiftsRouteImport.update({
+  id: '/gifts',
+  path: '/gifts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ElectronicsRoute = ElectronicsRouteImport.update({
+  id: '/electronics',
+  path: '/electronics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BooksRoute = BooksRouteImport.update({
+  id: '/books',
+  path: '/books',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -49,7 +97,20 @@ export interface FileRoutesByFullPath {
   '/watches': typeof WatchesRoute
   '/wishlist': typeof WishlistRoute
 }
-export interface FileRoutesByTo extends FileRoutesByFullPath {}
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/books': typeof BooksRoute
+  '/cart': typeof CartRoute
+  '/contact': typeof ContactRoute
+  '/electronics': typeof ElectronicsRoute
+  '/gifts': typeof GiftsRoute
+  '/perfumes': typeof PerfumesRoute
+  '/search': typeof SearchRoute
+  '/shipping': typeof ShippingRoute
+  '/watches': typeof WatchesRoute
+  '/wishlist': typeof WishlistRoute
+}
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
@@ -67,10 +128,47 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/books' | '/cart' | '/contact' | '/electronics' | '/gifts' | '/perfumes' | '/search' | '/shipping' | '/watches' | '/wishlist'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/books'
+    | '/cart'
+    | '/contact'
+    | '/electronics'
+    | '/gifts'
+    | '/perfumes'
+    | '/search'
+    | '/shipping'
+    | '/watches'
+    | '/wishlist'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/books' | '/cart' | '/contact' | '/electronics' | '/gifts' | '/perfumes' | '/search' | '/shipping' | '/watches' | '/wishlist'
-  id: '__root__' | '/' | '/about' | '/books' | '/cart' | '/contact' | '/electronics' | '/gifts' | '/perfumes' | '/search' | '/shipping' | '/watches' | '/wishlist'
+  to:
+    | '/'
+    | '/about'
+    | '/books'
+    | '/cart'
+    | '/contact'
+    | '/electronics'
+    | '/gifts'
+    | '/perfumes'
+    | '/search'
+    | '/shipping'
+    | '/watches'
+    | '/wishlist'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/books'
+    | '/cart'
+    | '/contact'
+    | '/electronics'
+    | '/gifts'
+    | '/perfumes'
+    | '/search'
+    | '/shipping'
+    | '/watches'
+    | '/wishlist'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -90,33 +188,107 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/wishlist': { id: '/wishlist'; path: '/wishlist'; fullPath: '/wishlist'; preLoaderRoute: typeof WishlistRouteImport; parentRoute: typeof rootRouteImport }
-    '/watches': { id: '/watches'; path: '/watches'; fullPath: '/watches'; preLoaderRoute: typeof WatchesRouteImport; parentRoute: typeof rootRouteImport }
-    '/shipping': { id: '/shipping'; path: '/shipping'; fullPath: '/shipping'; preLoaderRoute: typeof ShippingRouteImport; parentRoute: typeof rootRouteImport }
-    '/search': { id: '/search'; path: '/search'; fullPath: '/search'; preLoaderRoute: typeof SearchRouteImport; parentRoute: typeof rootRouteImport }
-    '/perfumes': { id: '/perfumes'; path: '/perfumes'; fullPath: '/perfumes'; preLoaderRoute: typeof PerfumesRouteImport; parentRoute: typeof rootRouteImport }
-    '/gifts': { id: '/gifts'; path: '/gifts'; fullPath: '/gifts'; preLoaderRoute: typeof GiftsRouteImport; parentRoute: typeof rootRouteImport }
-    '/electronics': { id: '/electronics'; path: '/electronics'; fullPath: '/electronics'; preLoaderRoute: typeof ElectronicsRouteImport; parentRoute: typeof rootRouteImport }
-    '/contact': { id: '/contact'; path: '/contact'; fullPath: '/contact'; preLoaderRoute: typeof ContactRouteImport; parentRoute: typeof rootRouteImport }
-    '/cart': { id: '/cart'; path: '/cart'; fullPath: '/cart'; preLoaderRoute: typeof CartRouteImport; parentRoute: typeof rootRouteImport }
-    '/books': { id: '/books'; path: '/books'; fullPath: '/books'; preLoaderRoute: typeof BooksRouteImport; parentRoute: typeof rootRouteImport }
-    '/about': { id: '/about'; path: '/about'; fullPath: '/about'; preLoaderRoute: typeof AboutRouteImport; parentRoute: typeof rootRouteImport }
-    '/': { id: '/'; path: '/'; fullPath: '/'; preLoaderRoute: typeof IndexRouteImport; parentRoute: typeof rootRouteImport }
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/watches': {
+      id: '/watches'
+      path: '/watches'
+      fullPath: '/watches'
+      preLoaderRoute: typeof WatchesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping': {
+      id: '/shipping'
+      path: '/shipping'
+      fullPath: '/shipping'
+      preLoaderRoute: typeof ShippingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfumes': {
+      id: '/perfumes'
+      path: '/perfumes'
+      fullPath: '/perfumes'
+      preLoaderRoute: typeof PerfumesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gifts': {
+      id: '/gifts'
+      path: '/gifts'
+      fullPath: '/gifts'
+      preLoaderRoute: typeof GiftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/electronics': {
+      id: '/electronics'
+      path: '/electronics'
+      fullPath: '/electronics'
+      preLoaderRoute: typeof ElectronicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/books': {
+      id: '/books'
+      path: '/books'
+      fullPath: '/books'
+      preLoaderRoute: typeof BooksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute,
-  AboutRoute,
-  BooksRoute,
-  CartRoute,
-  ContactRoute,
-  ElectronicsRoute,
-  GiftsRoute,
-  PerfumesRoute,
-  SearchRoute,
-  ShippingRoute,
-  WatchesRoute,
-  WishlistRoute,
+  IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BooksRoute: BooksRoute,
+  CartRoute: CartRoute,
+  ContactRoute: ContactRoute,
+  ElectronicsRoute: ElectronicsRoute,
+  GiftsRoute: GiftsRoute,
+  PerfumesRoute: PerfumesRoute,
+  SearchRoute: SearchRoute,
+  ShippingRoute: ShippingRoute,
+  WatchesRoute: WatchesRoute,
+  WishlistRoute: WishlistRoute,
 }
-export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)._addFileTypes<FileRouteTypes>()
+export const routeTree = rootRouteImport
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
