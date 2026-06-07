@@ -59,7 +59,7 @@ function ShippingPage() {
             {fromCountries.map((c, i) => (
               <div key={c.n} className="bg-white rounded-xl p-3 text-center text-navy">
                 <div className="text-3xl">{c.flag}</div>
-                <div className="h-20 rounded my-2" style={{ backgroundImage: `url(${landmarksFrom})`, backgroundSize: `${fromCountries.length * 100}% 100%`, backgroundPosition: `${(i / (fromCountries.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
+                <div className="aspect-square rounded my-2" style={{ backgroundImage: `url(${landmarksFrom})`, backgroundSize: `${fromCountries.length * 100}% 100%`, backgroundPosition: `${(i / (fromCountries.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
                 <p className="text-sm font-semibold">{c.n}</p>
               </div>
             ))}
@@ -74,7 +74,7 @@ function ShippingPage() {
             {toCountries.map((c, i) => (
               <div key={c.n} className="bg-white rounded-xl p-2 text-center text-navy">
                 <div className="text-2xl">{c.flag}</div>
-                <div className="h-16 rounded my-1.5" style={{ backgroundImage: `url(${landmarksTo})`, backgroundSize: `${toCountries.length * 100}% 100%`, backgroundPosition: `${(i / (toCountries.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
+                <div className="aspect-square rounded my-1.5" style={{ backgroundImage: `url(${landmarksTo})`, backgroundSize: `${toCountries.length * 100}% 100%`, backgroundPosition: `${(i / (toCountries.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
                 <p className="text-xs font-semibold">{c.n}</p>
               </div>
             ))}
