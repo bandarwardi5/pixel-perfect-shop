@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
 import { Plane, MapPin, Package, ShieldCheck, Building2, Clock, FileText, Calculator, Send, Star, ArrowLeftRight, Box } from "lucide-react";
 import hero from "@/assets/hero-shipping.jpg";
+import landmarksFrom from "@/assets/landmarks-from.jpg";
+import landmarksTo from "@/assets/landmarks-to.jpg";
 
 export const Route = createFileRoute("/shipping")({
   head: () => ({ meta: [{ title: "الشحن الدولي | مجموعة هنداوي" }, { name: "description", content: "شحن جوي سريع وآمن من الصين وتركيا إلى العالم." }] }),
@@ -54,10 +56,10 @@ function ShippingPage() {
         <div className="bg-navy text-cream rounded-2xl p-5 border-2 border-gold/40">
           <h3 className="text-center font-bold mb-4">الدول الرئيسية (من)</h3>
           <div className="grid grid-cols-2 gap-3">
-            {fromCountries.map(c => (
+            {fromCountries.map((c, i) => (
               <div key={c.n} className="bg-white rounded-xl p-3 text-center text-navy">
                 <div className="text-3xl">{c.flag}</div>
-                <div className="h-16 bg-cream rounded my-2 grid place-items-center text-[10px] text-muted-foreground">{c.n}</div>
+                <div className="h-20 rounded my-2" style={{ backgroundImage: `url(${landmarksFrom})`, backgroundSize: `${fromCountries.length * 100}% 100%`, backgroundPosition: `${(i / (fromCountries.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
                 <p className="text-sm font-semibold">{c.n}</p>
               </div>
             ))}
@@ -69,10 +71,11 @@ function ShippingPage() {
         <div className="bg-navy text-cream rounded-2xl p-5 border-2 border-gold/40">
           <h3 className="text-center font-bold mb-4">الدول المستهدفة (إلى)</h3>
           <div className="grid grid-cols-4 md:grid-cols-7 gap-3">
-            {toCountries.map(c => (
-              <div key={c.n} className="bg-white rounded-xl p-3 text-center text-navy">
+            {toCountries.map((c, i) => (
+              <div key={c.n} className="bg-white rounded-xl p-2 text-center text-navy">
                 <div className="text-2xl">{c.flag}</div>
-                <p className="text-xs font-semibold mt-2">{c.n}</p>
+                <div className="h-16 rounded my-1.5" style={{ backgroundImage: `url(${landmarksTo})`, backgroundSize: `${toCountries.length * 100}% 100%`, backgroundPosition: `${(i / (toCountries.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
+                <p className="text-xs font-semibold">{c.n}</p>
               </div>
             ))}
           </div>

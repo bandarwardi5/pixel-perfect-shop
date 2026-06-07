@@ -128,9 +128,7 @@ function WatchesPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {others.map((o, i) => (
               <div key={o.t} className="border border-border rounded-xl p-4 text-center">
-                <div className="size-16 mx-auto rounded-full bg-cream grid place-items-center text-[oklch(0.35_0.12_150)] mb-2">
-                  {[<Sparkles key="a" />, <Glasses key="b" />, <BookOpen key="c" />, <Gift key="d" />][i]}
-                </div>
+                <div className="h-24 w-full rounded-lg mb-2" style={{ backgroundImage: `url(${row})`, backgroundSize: `${others.length * 100}% 100%`, backgroundPosition: `${(i / (others.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
                 <p className="text-navy font-semibold text-sm">{o.t}</p>
                 <p className="text-muted-foreground text-[11px] mt-1 leading-relaxed">{o.s}</p>
                 <button className="mt-3 bg-[oklch(0.35_0.12_150)] text-white px-4 py-1.5 rounded text-xs">تسوق الآن</button>
