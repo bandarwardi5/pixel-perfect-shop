@@ -3,6 +3,7 @@ import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
 import { ChevronLeft, ChevronRight, Crown, Gift, Sparkles, Watch, BookOpen, Headphones, Glasses, Package, Star, Truck, ShieldCheck, Headphones as Support, Lock } from "lucide-react";
 import hero from "@/assets/hero-perfumes.jpg";
 import brands from "@/assets/perfume-brands.jpg";
+import housesRow from "@/assets/perfume-houses-row.jpg";
 import p1 from "@/assets/p1.jpg";
 import p2 from "@/assets/p2.jpg";
 
@@ -63,10 +64,10 @@ function PerfumesPage() {
             <button className="absolute right-0 top-1/2 -translate-y-1/2 size-9 rounded-full bg-white shadow border border-border grid place-items-center"><ChevronRight className="size-5 text-navy" /></button>
             <button className="absolute left-0 top-1/2 -translate-y-1/2 size-9 rounded-full bg-white shadow border border-border grid place-items-center"><ChevronLeft className="size-5 text-navy" /></button>
             <div className="grid grid-cols-3 md:grid-cols-8 gap-3">
-              {houses.map(h => (
-                <div key={h} className="border border-border rounded-xl py-4 px-2 text-center hover:border-gold transition cursor-pointer">
-                  <div className="h-10 grid place-items-center text-navy/70 text-xs" style={{ fontFamily: 'var(--font-display)' }}>BRAND</div>
-                  <p className="text-xs text-navy mt-1.5 font-medium">{h}</p>
+              {houses.map((h, i) => (
+                <div key={h} className="border border-border rounded-xl py-3 px-2 text-center hover:border-gold transition cursor-pointer">
+                  <div className="h-12 w-full overflow-hidden rounded-md" style={{ backgroundImage: `url(${housesRow})`, backgroundSize: `${houses.length * 100}% 100%`, backgroundPosition: `${(i / (houses.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
+                  <p className="text-xs text-navy mt-2 font-medium">{h}</p>
                 </div>
               ))}
             </div>

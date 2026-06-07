@@ -5,6 +5,7 @@ import hero from "@/assets/hero-watches.jpg";
 import boxes from "@/assets/watch-boxes.jpg";
 import row from "@/assets/watches-row.jpg";
 import p3 from "@/assets/p3.jpg";
+import brandsRow from "@/assets/watch-brands-row.jpg";
 
 export const Route = createFileRoute("/watches")({
   head: () => ({ meta: [{ title: "الساعات الفاخرة | مجموعة هنداوي" }, { name: "description", content: "ساعات فاخرة من أكبر الماركات العالمية." }] }),
@@ -62,8 +63,9 @@ function WatchesPage() {
           <button className="absolute left-2 top-1/2 -translate-y-1/2 size-8 rounded-full bg-white shadow border border-border grid place-items-center"><ChevronLeft className="size-4 text-navy" /></button>
           <div className="flex gap-3 overflow-x-auto px-10">
             {brands.map((b, i) => (
-              <div key={b} className={`shrink-0 min-w-[110px] px-4 py-3 rounded-lg text-center border ${i === 1 ? "bg-[oklch(0.35_0.12_150)] text-white border-transparent" : "bg-white border-border text-navy/80"}`} style={{ fontFamily: 'var(--font-display)' }}>
-                <p className="text-xs font-bold">{b}</p>
+              <div key={b} className={`shrink-0 min-w-[120px] rounded-lg text-center border overflow-hidden ${i === 1 ? "bg-[oklch(0.35_0.12_150)] text-white border-transparent" : "bg-white border-border text-navy/80"}`}>
+                <div className="h-12 w-full" style={{ backgroundImage: `url(${brandsRow})`, backgroundSize: `${brands.length * 100}% 100%`, backgroundPosition: `${(i / (brands.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat', filter: i === 1 ? 'brightness(1.2)' : 'none' }} />
+                <p className="text-[11px] font-bold py-1.5 px-2" style={{ fontFamily: 'var(--font-display)' }}>{b}</p>
               </div>
             ))}
           </div>
@@ -125,9 +127,7 @@ function WatchesPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {others.map((o, i) => (
               <div key={o.t} className="border border-border rounded-xl p-4 text-center">
-                <div className="size-16 mx-auto rounded-full bg-cream grid place-items-center text-[oklch(0.35_0.12_150)] mb-2">
-                  {[<Sparkles key="a" />, <Glasses key="b" />, <BookOpen key="c" />, <Gift key="d" />][i]}
-                </div>
+                <div className="h-24 w-full rounded-lg mb-2" style={{ backgroundImage: `url(${row})`, backgroundSize: `${others.length * 100}% 100%`, backgroundPosition: `${(i / (others.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
                 <p className="text-navy font-semibold text-sm">{o.t}</p>
                 <p className="text-muted-foreground text-[11px] mt-1 leading-relaxed">{o.s}</p>
                 <button className="mt-3 bg-[oklch(0.35_0.12_150)] text-white px-4 py-1.5 rounded text-xs">تسوق الآن</button>
