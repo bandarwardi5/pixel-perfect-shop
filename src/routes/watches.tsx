@@ -6,7 +6,6 @@ import boxes from "@/assets/watch-boxes.jpg";
 import row from "@/assets/watches-row.jpg";
 import p3 from "@/assets/p3.jpg";
 import brandsRow from "@/assets/watch-brands-row.jpg";
-import landmarksFrom from "@/assets/landmarks-from.jpg";
 
 export const Route = createFileRoute("/watches")({
   head: () => ({ meta: [{ title: "الساعات الفاخرة | مجموعة هنداوي" }, { name: "description", content: "ساعات فاخرة من أكبر الماركات العالمية." }] }),
