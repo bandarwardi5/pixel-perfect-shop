@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ChevronLeft, ChevronRight, Truck, ShieldCheck, Lock, RotateCcw, Gift,
-  Globe, Crown, CheckCircle2, Watch, Sparkles, BookOpen, Smartphone, HeartPulse,
+  Globe, Crown, Check, Watch, Sparkles, BookOpen, Smartphone, HeartPulse,
   Headphones,
 } from "lucide-react";
 import hero from "@/assets/hero.jpg";
@@ -74,7 +74,7 @@ function Home() {
               <p className="mt-6 text-cream/85 text-sm md:text-lg max-w-xl mr-0 ml-auto">
                 عطور · ساعات · هدايا · إلكترونيات · صحة وجمال · كتب · أعمال · شحن دولي
               </p>
-              <Link to="/search" className="inline-block mt-8 px-10 py-3.5 rounded-lg border border-gold text-gold hover:bg-gold hover:text-navy-deep transition text-sm font-medium">
+              <Link to="/search" search={{ q: "" }} className="inline-block mt-8 px-10 py-3.5 rounded-lg border border-gold text-gold hover:bg-gold hover:text-navy-deep transition text-sm font-medium">
                 تسوق الآن
               </Link>
             </div>
@@ -97,36 +97,64 @@ function Home() {
       </section>
 
       {/* Promo cards */}
-      <section className="max-w-7xl mx-auto px-4 mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <section className="max-w-7xl mx-auto px-4 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {promos.map((p, i) => (
-          <article key={i} className="bg-white rounded-2xl border border-border overflow-hidden flex flex-col text-center p-5 shadow-sm hover:shadow-md transition">
-            <h3 className="text-navy font-bold text-lg">{p.title}</h3>
-            <p className="text-muted-foreground text-xs mt-1.5 min-h-[32px]">{p.sub}</p>
-            {p.steps && (
-              <div className="flex items-center justify-between gap-1 mt-3 text-[10px] text-navy/70">
-                {p.steps.map((s) => (
-                  <div key={s} className="flex flex-col items-center gap-1 flex-1">
-                    <div className="size-7 rounded-full bg-cream border border-gold/30 grid place-items-center text-gold">
-                      <CheckCircle2 className="size-3.5" />
+          <article key={i} className="bg-white rounded-[2.5rem] border border-border/50 overflow-hidden flex flex-col text-center p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group">
+            <div className="mb-6">
+              <h3 className="text-navy font-bold text-2xl mb-2 tracking-tight">{p.title}</h3>
+              <p className="text-muted-foreground text-sm font-medium opacity-80">{p.sub}</p>
+            </div>
+            
+            <div className="flex-1 flex flex-col items-center justify-start mb-8">
+              {p.steps && (
+                <div className="flex items-start justify-center gap-2 mb-8 w-full">
+                  {p.steps.map((s) => (
+                    <div key={s} className="flex flex-col items-center gap-1.5">
+                      <div className="size-6 rounded-full border border-gold/40 flex items-center justify-center text-gold">
+                        <Check className="size-3" strokeWidth={3} />
+                      </div>
+                      <span className="text-[8px] text-navy/60 font-bold leading-tight whitespace-nowrap">{s}</span>
                     </div>
-                    <span>{s}</span>
+                  ))}
+                </div>
+              )}
+              
+              {p.bullets && (
+                <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mb-8 w-full px-1">
+                  {p.bullets.map(b => (
+                    <li key={b} className="flex items-center gap-1.5 flex-row-reverse">
+                      <span className="text-[10px] text-navy/80 font-bold whitespace-nowrap">{b}</span>
+                      <div className="size-4 rounded-full border border-gold/40 flex items-center justify-center text-gold shrink-0">
+                        <Check className="size-2.5" strokeWidth={3} />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              
+              {p.big && (
+                <div className="my-6">
+                  <div className="text-6xl font-black text-navy tracking-tighter">
+                    {p.big}
                   </div>
-                ))}
+                </div>
+              )}
+
+              <div className="relative w-full h-36 mt-auto flex items-center justify-center overflow-hidden">
+                <img 
+                  src={p.img} 
+                  alt={p.title} 
+                  loading="lazy" 
+                  className="max-w-[85%] max-h-full object-contain drop-shadow-xl" 
+                />
               </div>
-            )}
-            {p.bullets && (
-              <ul className="mt-3 space-y-1.5 text-xs text-navy/80 text-right">
-                {p.bullets.map(b => (
-                  <li key={b} className="flex items-center gap-2 justify-end">
-                    {b} <CheckCircle2 className="size-3.5 text-gold" />
-                  </li>
-                ))}
-              </ul>
-            )}
-            {p.big && <div className="text-5xl font-bold text-navy mt-2">{p.big}</div>}
-            <div className="flex-1 min-h-4" />
-            <img src={p.img} alt={p.title} loading="lazy" className="h-36 object-contain mx-auto my-3" />
-            <Link to={p.to} className="mt-auto bg-navy text-cream rounded-lg py-2.5 text-sm hover:bg-navy-deep transition border border-gold/20">
+            </div>
+
+            <Link 
+              to={p.to} 
+              search={p.to === "/search" ? { q: "" } : undefined}
+              className="w-full bg-navy-deep text-cream rounded-2xl py-4 text-base font-bold hover:bg-navy transition-all duration-300 shadow-lg shadow-navy/20 active:scale-95"
+            >
               {p.cta}
             </Link>
           </article>
