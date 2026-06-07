@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { useShop } from "@/lib/shop";
 import { categoriesList } from "@/lib/catalog";
+import logoImg from "@/assets/logo-hendawi.png";
 
 const nav = [
   { label: "الرئيسية", to: "/" as const },
@@ -162,13 +163,10 @@ export function SiteFooter() {
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
-    <Link to="/" className="flex items-center gap-2.5">
-      <div className="relative">
-        <div className="size-12 rounded-lg bg-gold-gradient grid place-items-center text-navy-deep font-bold text-xl" style={{ fontFamily: 'var(--font-display)' }}>HG</div>
-        <Crown className="size-3.5 text-gold absolute -top-1 right-1/2 translate-x-1/2" />
-      </div>
+    <Link to="/" className="flex items-center gap-3">
+      <img src={logoImg} alt="Hendawi Group" className="size-14 object-contain" />
       <div className={light ? "text-cream" : "text-navy"}>
-        <p className="font-bold text-lg tracking-widest leading-none" style={{ fontFamily: 'var(--font-display)' }}>HENDAWI</p>
+        <p className="font-bold text-xl tracking-wider leading-none" style={{ fontFamily: 'var(--font-display)' }}>HENDAWI</p>
         <p className="text-[10px] tracking-[0.4em] text-gold mt-1">G R O U P</p>
       </div>
     </Link>

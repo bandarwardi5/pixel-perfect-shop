@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ShopProvider } from "../lib/shop";
+import logoImg from "@/assets/logo-hendawi.png";
 
 function NotFoundComponent() {
   return (
@@ -74,14 +75,26 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  ssr: false,
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "مجموعة هنداوي" },
-      { name: "description", content: "متجر هنداوي للعطور والساعات والإلكترونيات والهدايا الفاخرة." },
+      { title: "مجموعة هنداوي | الفخامة والجودة" },
+      { name: "description", content: "اكتشف عالم الفخامة مع مجموعة هنداوي. عطور فاخرة، ساعات أنيقة، أحدث الإلكترونيات وهدايا مميزة تناسب جميع الأذواق." },
+      { name: "keywords", content: "هنداوي، عطور، ساعات، إلكترونيات، هدايا، تسوق أونلاين، إسطنبول، تركيا" },
+      { property: "og:title", content: "مجموعة هنداوي - Hendawi Group" },
+      { property: "og:description", content: "متجرك المفضل للعطور الفاخرة والساعات والأجهزة الإلكترونية." },
+      { property: "og:image", content: logoImg },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "مجموعة هنداوي - Hendawi Group" },
+      { name: "twitter:description", content: "متجرك المفضل للعطور الفاخرة والساعات والأجهزة الإلكترونية." },
+      { name: "twitter:image", content: logoImg },
     ],
     links: [
+      { rel: "icon", type: "image/png", href: logoImg },
+      { rel: "apple-touch-icon", href: logoImg },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Playfair+Display:wght@600;700&display=swap" },
