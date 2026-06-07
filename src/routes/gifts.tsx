@@ -72,7 +72,7 @@ function GiftsPage() {
           <div className="grid grid-cols-3 md:grid-cols-6 gap-3 text-center">
             {occasionList.map((o, i) => (
               <div key={o} className="border border-border rounded-xl p-3 hover:border-gold cursor-pointer">
-                <div className="h-24 w-full rounded-lg" style={{ backgroundImage: `url(${occasions})`, backgroundSize: `${occasionList.length * 100}% 100%`, backgroundPosition: `${(i / (occasionList.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
+                <div className="aspect-square w-full rounded-lg" style={{ backgroundImage: `url(${occasions})`, backgroundSize: `${occasionList.length * 100}% 100%`, backgroundPosition: `${(i / (occasionList.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
                 <p className="text-sm text-navy font-semibold mt-2">{o}</p>
                 <p className="text-[11px] text-gold mt-0.5">تسوق الآن ›</p>
               </div>
@@ -120,7 +120,7 @@ function GiftsPage() {
                   {p.badge && (
                     <span className={`absolute top-2 right-2 text-[10px] font-bold px-2 py-1 rounded ${p.badgeColor === "green" ? "bg-[oklch(0.5_0.15_150)] text-white" : p.badgeColor === "red" ? "bg-red-500 text-white" : "bg-gold text-navy-deep"}`}>{p.badge}</span>
                   )}
-                  <div className="h-32 bg-cream rounded-lg mt-6" style={{ backgroundImage: `url(${packages})`, backgroundSize: `${products.length * 100}% 100%`, backgroundPosition: `${(i / (products.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
+                  <div className="aspect-square bg-cream rounded-lg mt-6" style={{ backgroundImage: `url(${packages})`, backgroundSize: `${products.length * 100}% 100%`, backgroundPosition: `${(i / (products.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
                   <p className="text-navy font-bold text-sm mt-3 text-center">{p.t}</p>
                   <p className="text-muted-foreground text-[11px] text-center">{p.s}</p>
                   <div className="flex justify-center items-center gap-0.5 my-1">

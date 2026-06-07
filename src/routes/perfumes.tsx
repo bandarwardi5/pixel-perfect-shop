@@ -66,7 +66,7 @@ function PerfumesPage() {
             <div className="grid grid-cols-3 md:grid-cols-8 gap-3">
               {houses.map((h, i) => (
                 <div key={h} className="border border-border rounded-xl py-3 px-2 text-center hover:border-gold transition cursor-pointer">
-                  <div className="h-12 w-full overflow-hidden rounded-md" style={{ backgroundImage: `url(${housesRow})`, backgroundSize: `${houses.length * 100}% 100%`, backgroundPosition: `${(i / (houses.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
+                  <div className="aspect-square w-full overflow-hidden rounded-md" style={{ backgroundImage: `url(${housesRow})`, backgroundSize: `${houses.length * 100}% 100%`, backgroundPosition: `${(i / (houses.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
                   <p className="text-xs text-navy mt-2 font-medium">{h}</p>
                 </div>
               ))}

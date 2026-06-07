@@ -64,7 +64,7 @@ function WatchesPage() {
           <div className="flex gap-3 overflow-x-auto px-10">
             {brands.map((b, i) => (
               <div key={b} className={`shrink-0 min-w-[120px] rounded-lg text-center border overflow-hidden ${i === 1 ? "bg-[oklch(0.35_0.12_150)] text-white border-transparent" : "bg-white border-border text-navy/80"}`}>
-                <div className="h-12 w-full" style={{ backgroundImage: `url(${brandsRow})`, backgroundSize: `${brands.length * 100}% 100%`, backgroundPosition: `${(i / (brands.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat', filter: i === 1 ? 'brightness(1.2)' : 'none' }} />
+                <div className="aspect-square w-full" style={{ backgroundImage: `url(${brandsRow})`, backgroundSize: `${brands.length * 100}% 100%`, backgroundPosition: `${(i / (brands.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat', filter: i === 1 ? 'brightness(1.2)' : 'none' }} />
                 <p className="text-[11px] font-bold py-1.5 px-2" style={{ fontFamily: 'var(--font-display)' }}>{b}</p>
               </div>
             ))}
@@ -127,7 +127,7 @@ function WatchesPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {others.map((o, i) => (
               <div key={o.t} className="border border-border rounded-xl p-4 text-center">
-                <div className="h-24 w-full rounded-lg mb-2" style={{ backgroundImage: `url(${row})`, backgroundSize: `${others.length * 100}% 100%`, backgroundPosition: `${(i / (others.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
+                <div className="aspect-square w-full rounded-lg mb-2" style={{ backgroundImage: `url(${row})`, backgroundSize: `${others.length * 100}% 100%`, backgroundPosition: `${(i / (others.length - 1)) * 100}% center`, backgroundRepeat: 'no-repeat' }} />
                 <p className="text-navy font-semibold text-sm">{o.t}</p>
                 <p className="text-muted-foreground text-[11px] mt-1 leading-relaxed">{o.s}</p>
                 <button className="mt-3 bg-[oklch(0.35_0.12_150)] text-white px-4 py-1.5 rounded text-xs">تسوق الآن</button>
